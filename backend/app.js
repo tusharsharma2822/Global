@@ -5,6 +5,7 @@ import connectToDB from "./db/db.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import studentRoutes from './routes/student.routes.js';
+import teacherRoutes from "./routes/teacher.routes.js";
 const app = express();
 
 connectToDB();
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
     res.send("Hello, World!");
 })
 
-app.use('/students', studentRoutes)
+app.use('/students', studentRoutes);
+app.use('/teachers', teacherRoutes);
 
 export default app;
