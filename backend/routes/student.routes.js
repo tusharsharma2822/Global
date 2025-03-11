@@ -10,4 +10,10 @@ router.post('/register',
     studentController.createStudentController
 )
 
+router.post('/login',
+    body('email').isEmail().withMessage("Email must be a valid password"),
+    body('password').isLength({min:3}).withMessage("Password must be atleast 3 Characters long"),
+    studentController.studentLoginController
+)
+
 export default router
